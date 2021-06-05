@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
   margin: 20px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 5px yellow;
-  background-color: rgba(220, 170, 200, 0.4);
+  box-shadow: 3px 3px 5px black;
+  background-color: rgba(220, 220, 220, 1);
   opacity: 1;
   :hover {
     opacity: 1;
