@@ -6,12 +6,11 @@ export const Title = styled.h1`
 `;
 
 export const Wrapper = styled.div`
-  margin: 20px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 5px black;
-  background-color: rgba(220, 220, 220, 1);
-  opacity: 1;
+  //border-radius: 10px;
+  //box-shadow: 3px 3px 5px black;
+  //background-color: rgba(220, 220, 220, 1);
+  opacity: 0.5;
   :hover {
     opacity: 1;
     transition: 0.8s;
@@ -21,6 +20,7 @@ export const Wrapper = styled.div`
 export const ImageWrapper = styled.div`
   max-width: 100%;
   max-height: 100%;
+  border-radius: 10px;
 `;
 
 export const Paragraph = styled.p`
