@@ -15,10 +15,10 @@ export const Title = styled.h1`
   font-size: 1.5em;
 `;
 
-export const CardWrapper = styled.div`
-  //display: flex;
-  flex-wrap: wrap;
-  // width: 100vw;
+export const CardWrapper = styled.span`
+  //   //display: flex;
+  //   flex-wrap: wrap;
+  //   // width: 100vw;
 `;
 
 export const CardCol = styled.div`

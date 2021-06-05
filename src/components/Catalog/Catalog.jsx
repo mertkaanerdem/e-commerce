@@ -39,26 +39,33 @@ function Catalog() {
           </Button>
         </Link>
       </HeaderWrapper>
-      <Container>
+      <Container fluid="md">
         <Row>
-          <Col sm={12} md={4}>
-            <CardWrapper>
-              {products.map((product) => {
-                return (
-                  <div CardWey={product.id}>
-                    <CardCol className="card shadow" /*size={4}*/>
-                      <CatalogCard
-                        image={product.image}
-                        title={product.title}
-                        price={product.price}
-                        category={product.category}
-                        description={product.description}
-                      />
-                    </CardCol>
-                  </div>
-                );
-              })}
-            </CardWrapper>
+          <Col sm="12" md="8">
+            <Row>
+              <Col xs="8" lg="5">
+                <CardWrapper>
+                  {products.map((product) => {
+                    return (
+                      <div CardWey={product.id}>
+                        <CardCol className="card">
+                          <CatalogCard
+                            image={product.image}
+                            title={product.title}
+                            price={product.price}
+                            category={product.category}
+                            description={product.description}
+                          />
+                        </CardCol>
+                      </div>
+                    );
+                  })}
+                </CardWrapper>
+              </Col>
+            </Row>
+          </Col>
+          <Col sm="12" md="4">
+            <h1>Annen</h1>
           </Col>
         </Row>
       </Container>
