@@ -1,8 +1,11 @@
 import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Title, CardWrapper, CardCol } from "./styled";
+import { Button, Container, Row, Col } from "react-bootstrap";
+
+import { HeaderWrapper, Title, CardWrapper, CardCol } from "./styled";
 
 import CatalogCard from "./CatalogCard/CatalogCard";
 
@@ -22,28 +25,43 @@ function Catalog() {
 
   return (
     <div>
-      <Title>E-Commerce Site</Title>
+      <HeaderWrapper>
+        <Title>E-Commerce Site</Title>
 
-      <div>
-        <Link to="/details">Details</Link>
-      </div>
-      <CardWrapper>
-        {products.map((product) => {
-          return (
-            <div CardWey={product.id}>
-              <CardCol size={3}>
-                <CatalogCard
-                  image={product.image}
-                  title={product.title}
-                  price={product.price}
-                  category={product.category}
-                  description={product.description}
-                />
-              </CardCol>
-            </div>
-          );
-        })}
-      </CardWrapper>
+        <Link to="/favorites">
+          <Button className="btn btn-warning m-2">
+            <span className="text-white">Favorites</span>
+          </Button>
+        </Link>
+        <Link to="/basket">
+          <Button className="btn btn-warning">
+            <span className="text-white">Basket</span>
+          </Button>
+        </Link>
+      </HeaderWrapper>
+      <Container>
+        <Row>
+          <Col sm={12} md={4}>
+            <CardWrapper>
+              {products.map((product) => {
+                return (
+                  <div CardWey={product.id}>
+                    <CardCol className="card shadow" /*size={4}*/>
+                      <CatalogCard
+                        image={product.image}
+                        title={product.title}
+                        price={product.price}
+                        category={product.category}
+                        description={product.description}
+                      />
+                    </CardCol>
+                  </div>
+                );
+              })}
+            </CardWrapper>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
