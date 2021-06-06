@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Button, Container, Row, Col } from "react-bootstrap";
+import { Grid } from "@material-ui/core";
 
 import { HeaderWrapper, Title } from "./styled";
 
@@ -21,30 +22,33 @@ function Catalog() {
     axios
       .get(API_URL)
       .then((response) => setProducts(response.data))
-      .catch((error) => console.log(error));
-  });
+      .catch((error) => console.log(error.message));
+  }, []);
 
   return (
-    <div>
-      <HeaderWrapper>
-        <Title>E-Commerce Site</Title>
+    <Container>
+      <Row>
+        <Col sm="12">
+          <HeaderWrapper>
+            <Title>E-Commerce Site</Title>
 
-        <Link to="/favorites">
-          <Button className="btn btn-warning m-2">
-            <span className="text-white">Favorites</span>
-          </Button>
-        </Link>
-        <Link to="/basket">
-          <Button className="btn btn-warning">
-            <span className="text-white">Basket</span>
-          </Button>
-        </Link>
-      </HeaderWrapper>
-      <Container>
-        <Row>
-          <Col
-            sm="12"
-            md="8"
+            <Link to="/favorites">
+              <Button className="btn btn-warning m-2">
+                <span className="text-white">Favorites</span>
+              </Button>
+            </Link>
+            <Link to="/basket">
+              <Button className="btn btn-warning">
+                <span className="text-white">Basket</span>
+              </Button>
+            </Link>
+          </HeaderWrapper>
+        </Col>
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            md={8}
             style={{
               backgroundColor: "rgba(0,0,0,0.4)",
               borderRadius: "5px",
@@ -53,24 +57,26 @@ function Catalog() {
           >
             {products.map((product) => {
               return (
-                <div CardWey={product.id}>
-                  <CatalogCard
-                    image={product.image}
-                    title={product.title}
-                    price={product.price}
-                    category={product.category}
-                    description={product.description}
-                  />
+                <div key={product.id}>
+                  <Grid container direction="row" spacing={2}>
+                    <CatalogCard
+                      image={product.image}
+                      title={product.title}
+                      price={product.price}
+                      category={product.category}
+                      description={product.description}
+                    />
+                  </Grid>
                 </div>
               );
             })}
-          </Col>
-          <Col sm="12" md="4">
+          </Grid>
+          <Grid item xs={12} md={4}>
             <BasketArea />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </Grid>
+        </Grid>
+      </Row>
+    </Container>
   );
 }
 
