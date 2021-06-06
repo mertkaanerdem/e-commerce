@@ -6,7 +6,7 @@ import { Grid } from "@material-ui/core";
 function CatalogCard(props) {
   // title, price, image, description, category
   return (
-    <Grid item xs={12} md={4} className="card p-2 m-2">
+    <Grid className="card p-2 m-2">
       <Image rounded src={props.image} alt={props.title} />
       <Title>{props.title}</Title>
       <Paragraph weight={"bold"}>{props.price}. $</Paragraph>

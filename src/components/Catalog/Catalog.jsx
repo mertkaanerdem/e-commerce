@@ -1,12 +1,12 @@
 import axios from "axios";
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Nav, Navbar } from "react-bootstrap";
 import { Grid } from "@material-ui/core";
 
-import { HeaderWrapper, Title } from "./styled";
+import "./Catalog.css";
 
 import CatalogCard from "./CatalogCard/CatalogCard";
 import BasketArea from "./BasketArea/BasketArea";
@@ -27,38 +27,30 @@ function Catalog() {
 
   return (
     <Container>
-      <Row>
-        <Col sm="12">
-          <HeaderWrapper>
-            <Title>E-Commerce Site</Title>
+      <Navbar clasName="header" bg="light" expand="lg">
+        <Navbar.Brand to="/">
+          <h2>E-Commerce</h2>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <NavLink to="/basket">
+              <Button>Basket</Button>
+            </NavLink>
+            <NavLink to="/favorites">
+              <Button>Favorites</Button>
+            </NavLink>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
 
-            <Link to="/favorites">
-              <Button className="btn btn-warning m-2">
-                <span className="text-white">Favorites</span>
-              </Button>
-            </Link>
-            <Link to="/basket">
-              <Button className="btn btn-warning">
-                <span className="text-white">Basket</span>
-              </Button>
-            </Link>
-          </HeaderWrapper>
-        </Col>
-        <Grid container spacing={2}>
-          <Grid
-            item
-            xs={12}
-            md={8}
-            style={{
-              backgroundColor: "rgba(0,0,0,0.4)",
-              borderRadius: "5px",
-              padding: "10px",
-            }}
-          >
-            {products.map((product) => {
-              return (
-                <div key={product.id}>
-                  <Grid container direction="row" spacing={2}>
+      <Row>
+        <Grid container space={1}>
+          <Grid item xs={12} md={8}>
+            <Grid container space={1}>
+              {products.map((product) => {
+                return (
+                  <Grid item xs={12} md={5}>
                     <CatalogCard
                       image={product.image}
                       title={product.title}
@@ -67,11 +59,14 @@ function Catalog() {
                       description={product.description}
                     />
                   </Grid>
-                </div>
-              );
-            })}
+                );
+              })}
+              {/* <Grid item xs={12} md={6}>
+            <Paper>2</Paper>
+          </Grid> */}
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={3}>
             <BasketArea />
           </Grid>
         </Grid>

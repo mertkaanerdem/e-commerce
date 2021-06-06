@@ -1,0 +1,11 @@
+.header {
+  border-radius: 10px;
+  background-color: rgba(220, 220, 200, 0.5);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 20px;
+  align-items: center;
+}

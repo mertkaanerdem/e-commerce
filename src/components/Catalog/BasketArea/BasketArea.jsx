@@ -3,10 +3,10 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 function BasketArea() {
   return (
-    <Container fluid="md">
+    <Container fluid="md" className=" p-2 m-2">
       <Row>
         <Col>
-          <Card className="m-1">
+          <Card>
             <Card.Body>
               <Card.Title>Basket</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
