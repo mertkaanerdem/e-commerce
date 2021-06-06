@@ -24,6 +24,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Paragraph = styled.p`
+  font-size: 0.8rem;
   font-weight: ${(props) => props.weight};
   color: ${(props) => props.color};
   text-align: justify;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.span`
   background-color: #fff;
   margin: 10px 40px;
   padding: 0 40px;
@@ -21,7 +21,7 @@ export const CardWrapper = styled.span`
   //   // width: 100vw;
 `;
 
-export const CardCol = styled.div`
+export const CardCol = styled.span`
   color: black;
   // width: ${(props) => (props.size / 12) * 100}vw;
   margin: 10px;
