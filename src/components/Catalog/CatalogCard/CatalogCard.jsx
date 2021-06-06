@@ -5,7 +5,7 @@ import { Container, Row, Col, Button, Image } from "react-bootstrap";
 function CatalogCard(props) {
   // title, price, image, description, category
   return (
-    <Col className="card p-2">
+    <Col md="4" className="card p-2 m-2">
       <Image rounded src={props.image} alt={props.title} />
       <Title>{props.title}</Title>
       <Paragraph weight={"bold"}>{props.price}</Paragraph>

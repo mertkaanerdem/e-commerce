@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 
 import { Button, Container, Row, Col } from "react-bootstrap";
 
-import { HeaderWrapper, Title, CardWrapper, CardCol } from "./styled";
+import { HeaderWrapper, Title } from "./styled";
 
 import CatalogCard from "./CatalogCard/CatalogCard";
+import BasketArea from "./BasketArea/BasketArea";
 
 const API_URL = "https://60b8a5d4b54b0a0017c041b4.mockapi.io/api/v1/product/";
 
@@ -41,27 +42,31 @@ function Catalog() {
       </HeaderWrapper>
       <Container>
         <Row>
-          <Col sm="12" md="8" style={{ backgroundColor: "black" }}>
-            <Row>
-              <Col md="4">
-                {products.map((product) => {
-                  return (
-                    <div CardWey={product.id}>
-                      <CatalogCard
-                        image={product.image}
-                        title={product.title}
-                        price={product.price}
-                        category={product.category}
-                        description={product.description}
-                      />
-                    </div>
-                  );
-                })}
-              </Col>
-            </Row>
+          <Col
+            sm="12"
+            md="8"
+            style={{
+              backgroundColor: "rgba(0,0,0,0.4)",
+              borderRadius: "5px",
+              padding: "10px",
+            }}
+          >
+            {products.map((product) => {
+              return (
+                <div CardWey={product.id}>
+                  <CatalogCard
+                    image={product.image}
+                    title={product.title}
+                    price={product.price}
+                    category={product.category}
+                    description={product.description}
+                  />
+                </div>
+              );
+            })}
           </Col>
           <Col sm="12" md="4">
-            <h1>Annen</h1>
+            <BasketArea />
           </Col>
         </Row>
       </Container>
