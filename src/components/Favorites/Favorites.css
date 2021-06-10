@@ -1,10 +1,10 @@
-.cart-container .product-card {
+.favorites-container .product-card {
   display: flex;
   max-width: 800px;
   width: 100%;
 }
 
-.cart-container .product-card .product-tumb {
+.favorites-container .product-card .product-tumb {
   padding: 0;
 }
 

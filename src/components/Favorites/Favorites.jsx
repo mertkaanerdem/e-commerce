@@ -1,13 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { ProductContext } from "../../App";
+import CatalogCard from "../CatalogCard/CatalogCard";
+import "./Favorites.css";
 
-function Favorites() {
+export default function Favorites({ props }) {
+  const context = useContext(ProductContext);
+
   return (
-    <div>
-      <h2>Favorites</h2>
-      <Link to="/">Katalog</Link>
+    <div className="favorites-container">
+      <h1 className="title"> FAVORITES </h1>
+      {context.state.favorites.map((favItem) => (
+        <CatalogCard
+          product={favItem}
+          key={favItem.id}
+          showDropButtons={true}
+        />
+      ))}
     </div>
   );
 }
-
-export default Favorites;

@@ -1,11 +1,9 @@
-import React, { useState, useLocation, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
-function Detail(props) {
+function Detail() {
   //const location = useLocation();
   // const history = useHistory();
-  const [products, setProducts] = useState([]);
   // const cartCtx = useContext(CartContext);
 
   // const backToHomeHandler = () => {
@@ -40,8 +38,6 @@ function Detail(props) {
     <div>
       <h4>Details</h4>
       <Link to="/">Katalog</Link>
-
-      <p>{products.title}</p>
     </div>
   );
 }
